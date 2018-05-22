@@ -1,0 +1,26 @@
+{
+  "name": "volta",
+  "private": true,
+  "productName": "Volta",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Niccolo Borgioli",
+  "main": "./src/main.js",
+  "scripts": {
+    "pack:native": "electron-builder",
+    "pack:mac": "electron-builder --mac",
+    "pack:win": "electron-builder --win",
+    "pack:linux": "electron-builder --linux",
+    "pack:all": "electron-builder -mwl",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^2",
+    "electron-builder": "^20.14.5"
+  },
+  "dependencies": {
+    "auto-launch": "^5",
+    "battery-level": "^3.0.0",
+    "electron-settings": "^3"
+  }
+}
