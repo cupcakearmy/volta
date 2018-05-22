@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url('./vendor/Source\ Sans\ Pro.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url('./vendor/Source\ Sans\ Pro\ Bold.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+    color: #3B252C;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #F7FFF7;
+}
+
+hr {
+    border: 1px solid #E9F1F7;
+}
+
+#app {
+    padding: 1em;
+}
+
+#app .title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#app .link {
+    color: #3F8EFC;
+    /* color: inherit; */
+    font-size: 1em;
+    /* font-weight: normal; */
+    cursor: pointer;
+}
+
+#app .link:hover {
+    text-decoration: underline;
+}
+
+#currentBattery {
+    font-weight: normal;
+}
+
+#settings #values {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#settings #slider {
+    padding: 1em .6em;
+}
+
+#settings #slider-cont {
+    padding: 1em 0;
+}
+
+#settings .noUi-target {
+    border: none;
+}
+
+#settings .noUi-horizontal {
+    height: .3em;
+}
+
+#settings .noUi-connect {
+    background: #3F8EFC;
+}
+
+#settings .noUi-connects {
+    background: #E9F1F7;
+}
+
+#settings .noUi-horizontal .noUi-handle {
+    cursor: pointer;
+    width: 1.25em;
+    border-radius: 2em;
+    height: 1.25em;
+    background: #3F8EFC;
+    box-shadow: none;
+    border: none;
+    top: -.5em;
+    right: -.6em !important;
+}
+
+#settings .noUi-horizontal .noUi-handle:focus {
+    outline: none;
+    border: none;
+}
+
+#settings .noUi-origin .noUi-handle::before {
+    display: none;
+}
+
+#settings .noUi-origin .noUi-handle::after {
+    display: none;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #3F8EFC;
+    padding: .75em;
+    border-radius: 2em;
+    height: 1.5em;
+    width: 1.5em;
+    display: inline-block;
+    position: relative;
+    top: .5em;
+    transition: all ease .25s;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #3F8EFC;
+    border-color: #3473CC;
+}

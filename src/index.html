@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Weather</title>
+  <link rel="stylesheet" href="./index.css" charset="utf-8">
+  <link rel="stylesheet" href="./vendor/nouislider.min.css" charset="utf-8">
+  <script charset="utf-8" src="./vendor/nouislider.min.js">
+  </script>
+  <script charset="utf-8">
+    require('./index')
+  </script>
+</head>
+
+<body>
+
+  <div id="app">
+
+    <div class="title">Current:
+      <span id="currentBattery"></span>
+    </div>
+    <small>Note: Due to limits in the implementation the actual battery value may differ from the one given by the OS</small>
+    <hr/>
+
+    <div id="settings">
+      <div class="title">Limits</div>
+      <div id="slider">
+        <div id="slider-range"></div>
+      </div>
+      <div id="values">
+        <div id="min">
+          <strong>Min:</strong>
+          <span id="min-value"></span>
+        </div>
+        <div id="max">
+          <strong>Max:</strong>
+          <span id="max-value"></span>
+        </div>
+      </div>
+      <br/>
+      <small>Set at which battery level Volta should notify you</small>
+    </div>
+    <hr/>
+
+    <div class="title">Start on boot
+      <input type="checkbox" id="launch">
+    </div>
+    <hr/>
+    <div class="title link" id="close">Close Window</div>
+    <div class="title link" id="quit">Quit App</div>
+
+  </div>
+
+  <script>
+  </script>
+</body>
+
+</html>
