@@ -1,4 +1,4 @@
-# Volta
+# Volta ⚡️
 
 Battery assistant for prolonging the lifespan of your battery. Runs in the background, has configurable limits and can be enabled to run on startup.
 
