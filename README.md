@@ -2,6 +2,8 @@
 
 Battery assistant for prolonging the lifespan of your battery. Runs in the background, has configurable limits and can be enabled to run on startup.
 
+### [Download](https://github.com/CupCakeArmy/volta/releases)
+
 ## What does it do?
 
 Good question. It gives you notifications about when to plus and unplug your charger. 
