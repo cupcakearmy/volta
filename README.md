@@ -6,7 +6,7 @@ Battery assistant for prolonging the lifespan of your battery. Runs in the backg
 
 ## What does it do?
 
-Good question. It gives you notifications about when to plus and unplug your charger. 
+Good question. It gives you notifications about when to plug and unplug your charger. 
 
 > Cool, but why?
 
