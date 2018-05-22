@@ -29,7 +29,7 @@ let charging = undefined
 let numMin = 0
 let numMax = 0
 
-app.dock.hide()
+if (app.dock !== undefined) app.dock.hide()
 
 app.on('ready', () => {
   createTray()
