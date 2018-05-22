@@ -9,6 +9,7 @@ Good question. It gives you notifications about when to plus and unplug your cha
 > Cool, but why?
 
 Batteries loose the most capacity if the voltage difference is high, or staying at 100%. Hence, if you you use your laptop most of the time plugged in, it will decrease the capacity of the battery quicker than normal.
+
 To sum up, you shouldn't:
 
 - Charge you battery **regulary** over 80-90%
