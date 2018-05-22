@@ -1,0 +1,10 @@
+appId: "io.nicco.app.volta"
+productName: "Volta"
+directories:
+  output: "./out"
+mac:
+  target: "zip"
+win:
+  target: "portable"
+linux:
+  target: "AppImage"
