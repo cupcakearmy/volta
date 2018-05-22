@@ -29,7 +29,7 @@ Reference to the science:
 
 ## Build 🔨
 
-There are prebuilt binaries for macOS, Windows and Linux [here](https://github.com/CupCakeArmy/volta/releases). However you can also complile them yourself.
+There are prebuilt binaries for macOS [here](https://github.com/CupCakeArmy/volta/releases). However you can also complile them yourself.
 
 ```bash
 # Install dependencies
