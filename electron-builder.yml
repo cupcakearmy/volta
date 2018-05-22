@@ -5,6 +5,8 @@ directories:
 mac:
   target: "zip"
 win:
-  target: "portable"
+  target: 
+    - "portable"
+    - "nsis"
 linux:
   target: "AppImage"
