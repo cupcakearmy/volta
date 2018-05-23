@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/cupcakearmy/cca-volta](https://badges.gitter.im/cupcakearmy/cca-volta.svg)](https://gitter.im/cca-volta/Lobby)
+
 # Volta ⚡️
 
 Battery assistant for prolonging the lifespan of your battery. Runs in the background, has configurable limits and can be enabled to run on startup.
