@@ -2,6 +2,8 @@
 
 # Volta ⚡️
 
+[![Join the chat at https://gitter.im/cca-volta/Lobby](https://badges.gitter.im/cca-volta/Lobby.svg)](https://gitter.im/cca-volta/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Battery assistant for prolonging the lifespan of your battery. Runs in the background, has configurable limits and can be enabled to run on startup.
 
 [Screenshot](#screen)
