@@ -2,6 +2,8 @@
 
 Battery assistant for prolonging the lifespan of your battery. Runs in the background, has configurable limits and can be enabled to run on startup.
 
+[Screenshot](#screen)
+
 ### [Download](https://github.com/CupCakeArmy/volta/releases)
 
 ## What does it do?
@@ -26,6 +28,10 @@ Reference to the science:
 ## Quickstart 💥
 
 [Download](https://github.com/CupCakeArmy/volta/releases). Run.
+
+## Feedback
+
+Remember this is pretty new software wrote in ~2days, so if you encounter bugs or have feature requests please let me know!
 
 ## Build 🔨
 
