@@ -27,7 +27,16 @@ body,
     width: 100%;
     padding: 0;
     margin: 0;
-    background: #F7FFF7;
+}
+
+#app.dark {
+  background: #333;
+  color: #f2f2f2;
+}
+
+#app.light {
+  background: #F7FFF7;
+  color: #3B252C;
 }
 
 hr {

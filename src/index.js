@@ -3,6 +3,7 @@ const {
   shell,
   remote
 } = require('electron')
+const darkMode = require('dark-mode')
 
 let rangeSlider
 let autoLaunch
@@ -13,6 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   document.getElementById('close').addEventListener('click', () => {
     remote.getCurrentWindow().hide()
+  })
+
+  darkMode.isDark().then((dark) => {
+    if (dark) {
+      document.querySelector('#app').classList.add('dark')
+    } else {
+      document.querySelector('#app').classList.add('light')
+    }
   })
 })
 

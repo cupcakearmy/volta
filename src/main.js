@@ -4,6 +4,7 @@ const {
   ipcMain,
   Tray,
   nativeImage,
+  nativeTheme,
   Notification,
   electron
 } = require('electron')
@@ -40,16 +41,31 @@ app.on('window-all-closed', () => {
   app.quit()
 })
 
-const createTray = () => {
-  const icon = nativeImage.createFromPath(path.join(__dirname, 'battery.png')).resize({
+const createIcon = (image) => {
+  return nativeImage.createFromPath(path.join(__dirname, image)).resize({
     width: 24,
     height: 24
   })
+}
+
+const createTray = () => {
+  let icon
+  if (nativeTheme.shouldUseDarkColors) {
+    icon = createIcon('battery_dark.png')
+  } else {
+    icon = createIcon('battery_light.png')
+  }
   tray = new Tray(icon)
   tray.on('right-click', toggleWindow)
   tray.on('double-click', toggleWindow)
   tray.on('click', toggleWindow)
 }
+
+nativeTheme.on('updated', function() {
+  tray.destroy()
+  createTray()
+  window.reload()
+})
 
 const getWindowPosition = () => {
   const windowBounds = window.getBounds()
@@ -72,7 +88,10 @@ const createWindow = () => {
     frame: false,
     fullscreenable: false,
     resizable: false,
-    transparent: true
+    transparent: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
   window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
 
@@ -81,10 +100,6 @@ const createWindow = () => {
   })
 
   window.webContents.on('did-finish-load', sendCurrentValues)
-
-  // window.openDevTools({
-  //   mode: 'detach'
-  // })
 }
 
 const toggleWindow = () => {
