@@ -11,12 +11,13 @@
     "start": "electron ."
   },
   "devDependencies": {
-    "electron": "^2",
+    "electron": "^7",
     "electron-builder": "^20"
   },
   "dependencies": {
     "auto-launch": "^5",
     "battery-level": "^3",
+    "dark-mode": "^3.0.0",
     "electron-settings": "^3"
   }
 }
