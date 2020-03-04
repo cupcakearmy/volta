@@ -100,10 +100,6 @@ const createWindow = () => {
   })
 
   window.webContents.on('did-finish-load', sendCurrentValues)
-
-  window.openDevTools({
-    mode: 'detach'
-  })
 }
 
 const toggleWindow = () => {
