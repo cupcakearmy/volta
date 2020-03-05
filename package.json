@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "auto-launch": "^5",
-    "battery-level": "^3",
+    "child_process": "^1.0.2",
     "dark-mode": "^3.0.0",
     "electron-settings": "^3"
   }

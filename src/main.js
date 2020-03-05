@@ -12,6 +12,7 @@ const settings = require('electron-settings')
 const path = require('path')
 const AutoLaunch = require('auto-launch')
 const batteryLevel = require('battery-level')
+const exec = require('child_process').exec
 
 const al = new AutoLaunch({
   name: 'Volta'
@@ -148,21 +149,15 @@ function sendMax() {
   }).show()
 }
 
+let level = 'checking...';
 setInterval(() => {
-  batteryLevel().then(level => {
-    level = parseInt(level * 100)
-
-    if (level === lastBattery) return
-    if (level > lastBattery) charging = true
-    else charging = false
-    lastBattery = level
-
-    const limits = settings.get('values', defaultValues)
-
-    if (level <= limits.min) sendMin()
-    else if (level >= limits.max) sendMax()
-    else numMax = numMin = 0
-
-    window.webContents.send('battery', level)
-  }).catch(() => console.log('Could not get Battery level'))
+  exec('pmset -g batt | egrep "([0-9]+\%)" -o', function(err, stdout, stderr) {
+    if (err) {
+      console.log(error.stack)
+      console.log('Error code: ' + error.code)
+      console.log('Signal received: ' + error.signal)
+    }
+    level = String(stdout)
+  })
+  window.webContents.send('battery', level)
 }, 3000)

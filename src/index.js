@@ -66,5 +66,5 @@ ipcRenderer.on('launch', (event, checked) => {
 })
 
 ipcRenderer.on('battery', (event, value) => {
-  document.getElementById('currentBattery').innerText = `${value}%`
+  document.getElementById('currentBattery').innerText = `${value}`
 })
