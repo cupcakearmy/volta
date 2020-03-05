@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "electron": "^7",
-    "electron-builder": "^20"
+    "electron-builder": "^22"
   },
   "dependencies": {
     "auto-launch": "^5",
