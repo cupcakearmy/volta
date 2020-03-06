@@ -11,7 +11,6 @@ const {
 const settings = require('electron-settings')
 const path = require('path')
 const AutoLaunch = require('auto-launch')
-const batteryLevel = require('battery-level')
 const exec = require('child_process').exec
 
 const al = new AutoLaunch({
@@ -95,6 +94,7 @@ const createWindow = () => {
     }
   })
   window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
+  window.setVisibleOnAllWorkspaces(true)
 
   window.on('blur', () => {
     if (!window.webContents.isDevToolsOpened()) window.hide()
@@ -149,7 +149,7 @@ function sendMax() {
   }).show()
 }
 
-let level = 'checking...';
+let level = '--';
 setInterval(() => {
   exec('pmset -g batt | egrep "([0-9]+\%)" -o', function(err, stdout, stderr) {
     if (err) {
@@ -157,7 +157,17 @@ setInterval(() => {
       console.log('Error code: ' + error.code)
       console.log('Signal received: ' + error.signal)
     }
-    level = String(stdout)
+    level = parseInt(stdout)
   })
+  if (level > lastBattery) charging = true
+  else charging = false
+  lastBattery = level
+
+  const limits = settings.get('values', defaultValues)
+
+  if (level <= limits.min) sendMin()
+  else if (level >= limits.max) sendMax()
+  else numMax = numMin = 0
+
   window.webContents.send('battery', level)
 }, 3000)
