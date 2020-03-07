@@ -11,7 +11,7 @@ const {
 const settings = require('electron-settings')
 const path = require('path')
 const AutoLaunch = require('auto-launch')
-const batteryLevel = require('battery-level')
+const exec = require('child_process').exec
 
 const al = new AutoLaunch({
   name: 'Volta'
@@ -94,6 +94,7 @@ const createWindow = () => {
     }
   })
   window.loadURL(`file://${path.join(__dirname, 'index.html')}`)
+  window.setVisibleOnAllWorkspaces(true)
 
   window.on('blur', () => {
     if (!window.webContents.isDevToolsOpened()) window.hide()
@@ -148,21 +149,25 @@ function sendMax() {
   }).show()
 }
 
+let level = '--';
 setInterval(() => {
-  batteryLevel().then(level => {
-    level = parseInt(level * 100)
+  exec('pmset -g batt | egrep "([0-9]+\%)" -o', function(err, stdout, stderr) {
+    if (err) {
+      console.log(error.stack)
+      console.log('Error code: ' + error.code)
+      console.log('Signal received: ' + error.signal)
+    }
+    level = parseInt(stdout)
+  })
+  if (level > lastBattery) charging = true
+  else charging = false
+  lastBattery = level
 
-    if (level === lastBattery) return
-    if (level > lastBattery) charging = true
-    else charging = false
-    lastBattery = level
+  const limits = settings.get('values', defaultValues)
 
-    const limits = settings.get('values', defaultValues)
+  if (level <= limits.min) sendMin()
+  else if (level >= limits.max) sendMax()
+  else numMax = numMin = 0
 
-    if (level <= limits.min) sendMin()
-    else if (level >= limits.max) sendMax()
-    else numMax = numMin = 0
-
-    window.webContents.send('battery', level)
-  }).catch(() => console.log('Could not get Battery level'))
+  window.webContents.send('battery', level)
 }, 3000)
