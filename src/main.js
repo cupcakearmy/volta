@@ -6,7 +6,6 @@ const {
   nativeImage,
   nativeTheme,
   Notification,
-  electron
 } = require('electron')
 const settings = require('electron-settings')
 const path = require('path')
@@ -61,7 +60,7 @@ const createTray = () => {
   tray.on('click', toggleWindow)
 }
 
-nativeTheme.on('updated', function() {
+nativeTheme.on('updated', function () {
   tray.destroy()
   createTray()
   window.reload()
@@ -151,7 +150,7 @@ function sendMax() {
 
 let level = '--';
 setInterval(() => {
-  exec('pmset -g batt | egrep "([0-9]+\%)" -o', function(err, stdout, stderr) {
+  exec('pmset -g batt | egrep "([0-9]+\%)" -o', function (err, stdout, stderr) {
     if (err) {
       console.log(error.stack)
       console.log('Error code: ' + error.code)
