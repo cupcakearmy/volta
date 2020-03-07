@@ -8,6 +8,10 @@ Battery assistant for prolonging the lifespan of your battery. Runs in the backg
 
 ### [Download](https://github.com/CupCakeArmy/volta/releases)
 
+## Contributions 🙏
+
+- https://github.com/daaanny90 dark mode support
+
 ## What does it do?
 
 Good question. It gives you notifications about when to plug and unplug your charger. 
