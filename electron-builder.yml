@@ -4,9 +4,3 @@ directories:
   output: "./out"
 mac:
   target: "zip"
-win:
-  target: 
-    - "portable"
-    - "nsis"
-linux:
-  target: "AppImage"
