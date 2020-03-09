@@ -129,8 +129,7 @@ ipcRenderer.on('cycleNumber', (event, value) => {
     cycle = 3
   }
 
-  // https://support.apple.com/en-us/HT201585 600 is the average value of all models
-  // 1000 is the max cycle number of the best laptop, so over 1000 is for all models too much
+  // https://support.apple.com/en-us/HT201585 for the last models (afetr 2008-2009) the max limit is 1000 cycles
 })
 
 ipcRenderer.on('remaining', (event, value) => {
