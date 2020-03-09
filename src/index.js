@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.info').classList.toggle('active')
 
-    // TODO: write sentencees with a sense.
     switch(cycle) {
       case(1):
         infoContent.innerText = 'Your battery is healthy and in the first part of it\'s life.'
