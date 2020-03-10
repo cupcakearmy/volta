@@ -52,6 +52,61 @@ hr {
     font-weight: bold;
 }
 
+#app .subtitle {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#app .subtitle #cycleNumber,
+#app .subtitle #condition {
+  cursor: pointer;
+  z-index: 1;
+}
+
+
+#app .subtitle .normal {
+  color: lightgreen;
+}
+
+#app .subtitle .warning {
+  color: yellow;
+}
+
+#app .subtitle .danger {
+  color: red;
+}
+
+#app .info {
+  position: absolute;
+  background: #333;
+  padding: 1em;
+  border-radius: 8px;
+  font-weight: normal;
+  width: 100%;
+  min-height: 30%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#app .info .close {
+  text-align: right;
+  color: #3F8EFC;
+  cursor: pointer;
+}
+
+#app .info.active {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+  pointer-events: auto;
+  z-index: 2;
+}
+
 #app .link {
     color: #3F8EFC;
     font-size: 1em;
@@ -74,6 +129,7 @@ hr {
 
 #settings #slider {
     padding: 1em .6em;
+    z-index: 0
 }
 
 #settings #slider-cont {
