@@ -60,7 +60,7 @@ const createTray = () => {
   tray.on('click', toggleWindow)
 }
 
-nativeTheme.on('updated', function () {
+nativeTheme.on('updated', function() {
   tray.destroy()
   createTray()
   window.reload()
@@ -150,7 +150,7 @@ function sendMax() {
 
 let level = '--';
 setInterval(() => {
-  exec('pmset -g batt | egrep "([0-9]+\%)" -o', function (err, stdout, stderr) {
+  exec('pmset -g batt | egrep "([0-9]+\%)" -o', function(err, stdout, stderr) {
     if (err) {
       console.log(error.stack)
       console.log('Error code: ' + error.code)
@@ -167,6 +167,39 @@ setInterval(() => {
   if (level <= limits.min) sendMin()
   else if (level >= limits.max) sendMax()
   else numMax = numMin = 0
+
+  exec("system_profiler SPPowerDataType | grep 'Cycle Count' | awk '{print $3}'", function(err, stdout, stderr) {
+    let cycleNumber
+    if (err) {
+      console.log(err.stack)
+      console.log('Error code: ' + err.code)
+      console.log('Signal received: ' + err.signal)
+    }
+    cycleNumber = stdout
+    window.webContents.send('cycleNumber', cycleNumber)
+  })
+
+  exec("pmset -g batt | awk '{print $5}' | grep :", function(err, stdout, stderr) {
+    let remaining = '--'
+    if (err) {
+      console.log(err.stack)
+      console.log('Error code: ' + err.code)
+      console.log('Signal received: ' + err.signal)
+    }
+    remaining = stdout
+    window.webContents.send('remaining', remaining)
+  })
+
+  exec("system_profiler SPPowerDataType | grep Condition | awk '{print $2}'", function(err, stdout, stderr) {
+    let condition
+    if (err) {
+      console.log(err.stack)
+      console.log('Error code: ' + err.code)
+      console.log('Signal received: ' + err.signal)
+    }
+    condition = stdout
+    window.webContents.send('condition', condition)
+  })
 
   window.webContents.send('battery', level)
 }, 3000)
