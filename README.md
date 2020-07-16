@@ -2,6 +2,12 @@
 
 # Volta ⚡️
 
+> **Partial obsolete as of June 2020**
+>
+> Apple introduced macOS 10.15.5 with integrated support for battery health management, making this utility app kind of obsolete for the newer macbooks.
+>
+> Read more about this [here](https://support.apple.com/en-us/HT211094)
+
 Battery assistant for prolonging the lifespan of your battery. Runs in the background, has configurable limits and can be enabled to run on startup.
 
 [Screenshot](#screen)
