@@ -1,3 +1,7 @@
+> ⚠️ There is a really good app now! (Makes this project obsolete, fortunately)
+> 
+> https://github.com/AppHouseKitchen/AlDente-Charge-Limiter
+
 [![Join the chat at https://gitter.im/cupcakearmy/cca-volta](https://badges.gitter.im/cupcakearmy/cca-volta.svg)](https://gitter.im/cca-volta/Lobby)
 
 # Volta ⚡️
